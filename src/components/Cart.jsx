@@ -71,7 +71,7 @@ setData(NewL)
         <p className="text-lg text-gray-500">No items in the cart</p>
       ) : (
         data.filter(obj => obj.count > 0).map((obj) => (
-          <div key={obj.id} className='card relative flex flex-col shadow-lg gap-1 md:w-1/5 rounded-md bg-slate-200'>  
+          <div key={obj.id} className='card w-[250px] h-[315px] relative flex flex-col shadow-lg gap-1 md:w-1/5 rounded-md bg-slate-200'>  
           <img src={obj.img} className="rounded-md" alt="" />
            <h4 className="ratingAndCount text-xs sm:text-base">{obj.rating}  <FontAwesomeIcon icon={faStar} className="text-green-700"/> | {obj.viewCount}</h4>
           <p className='text-xl font-bold pl-3'>{obj.name}</p>
@@ -103,7 +103,7 @@ setData(NewL)
       )}
    
     </div>
-   { data.filter(obj => obj.count > 0).length !== 0 && <div className="footer flex justify-evenly bg-slate-100 shadow fixed z-1000 bottom-0 w-full"> 
+   { data.filter(obj => obj.count > 0).length !== 0 && <div className="footer flex justify-evenly items-center bg-slate-100 shadow fixed z-1000 bottom-0 w-full"> 
            <h1 className="w-1/2 text-lg md:text-xl">TOTAL : ₹{total}/- </h1>
            <button className="placeOrderBtn rounded-md w-1/2 md:w-1/5 bg-amber-500">Place Your Order..!</button>
     </div>}

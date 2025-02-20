@@ -62,7 +62,7 @@ setData(NewL)
     <div className='Container flex flex-wrap gap-10 justify-center'>
        {data.map((obj)=>{
         return(
-             <div key={obj.id} className='card relative flex flex-col shadow-lg gap-1 w-[180px] h-[320px] md:w-1/5 rounded-md bg-slate-200'>
+             <div key={obj.id} className='card relative flex flex-col shadow-lg gap-1 w-[250px] h-[315px] md:w-1/5 rounded-md bg-slate-200'>
                    <img src={obj.img} alt="" className="rounded-md" />
                    <h4 className="ratingAndCount text-xs sm:text-base">{obj.rating}  <FontAwesomeIcon icon={faStar} className="text-green-700"/> | {obj.viewCount}</h4>
                    <p className='text-xl font-bold pl-3'>{obj.name}</p>
