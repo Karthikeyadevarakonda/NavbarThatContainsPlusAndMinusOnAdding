@@ -40,4 +40,11 @@
   padding-left: 4px;
   padding-right: 4px;
 }
-
+.cart-title{
+  width: 300px;
+  margin: auto;
+  margin-top: 5px;
+  position:relative;
+  top: 20px;
+  padding: 1rem;
+}

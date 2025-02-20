@@ -5,6 +5,7 @@ import { useState } from 'react'
 import { v4 as uuidv4 } from 'uuid';
 import { createContext } from 'react';
 
+// eslint-disable-next-line react-refresh/only-export-components
 export const DataContext = createContext();
 
 let intialdata = [

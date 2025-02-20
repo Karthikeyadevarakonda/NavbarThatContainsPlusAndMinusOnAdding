@@ -1,6 +1,7 @@
-import { useState } from 'react'
+
 import Container from './Container.jsx'
 
+// eslint-disable-next-line react/prop-types
 const Navbar = ({setTab,count}) => {
    
   return (
