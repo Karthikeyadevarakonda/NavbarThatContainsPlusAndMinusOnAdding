@@ -3,6 +3,7 @@ import Home from './Home.jsx'
 import Items from './Items.jsx'
 import Cart from './Cart.jsx'
 
+// eslint-disable-next-line react/prop-types
 const Container = ({tab,count,setCount}) => {
   
   return (
