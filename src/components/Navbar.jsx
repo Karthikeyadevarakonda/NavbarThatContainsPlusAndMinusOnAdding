@@ -10,7 +10,7 @@ const Navbar = ({setTab,count}) => {
        <ul className='links'>
         <li onClick={()=>setTab(1)}>Home</li>
         <li onClick={()=>setTab(2)}>items</li>
-        <li onClick={()=>setTab(3)}>Cart <sup>{count}</sup></li>
+        <li id='cart' className='' onClick={()=>setTab(3)}>Cart <sup id='superCount' className=' text-white '>{count}</sup></li>
        </ul>                         
                                         
     </div>

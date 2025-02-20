@@ -32,9 +32,11 @@
 }
 .Container{
   margin-top: 30px;
+  margin-bottom: 90px;
 }
 .card{
   padding: 1.2rem;
+ 
 }
 .countsAddAndSub{
   padding-left: 4px;
@@ -47,4 +49,19 @@
   position:relative;
   top: 20px;
   padding: 1rem;
+}
+#superCount{
+ color: rgb(210, 82, 82);
+}
+#cart{
+  width: 90px;
+}
+#Btn{
+  margin-top: 10px;
+}
+#sBtn{
+  margin-top: 10px;
+}
+.placeOrderBtn{
+  padding: 0.5rem;
 }

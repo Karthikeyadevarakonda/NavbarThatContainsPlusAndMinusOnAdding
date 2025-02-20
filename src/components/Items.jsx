@@ -1,54 +1,15 @@
-import { useState } from 'react';
-// import { v4 as uuidv4 } from 'uuid';
+
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faPlus, faMinus } from "@fortawesome/free-solid-svg-icons";
+import { faPlus, faMinus, faStar } from "@fortawesome/free-solid-svg-icons";
 import { DataContext } from '../App';
 import { useContext } from 'react';
 
 
 
-// let data = [
-//   {
-//    id:uuidv4(),
-//    name:"iphone",
-//    img:"https://picsum.photos/300/200",
-//    count : 0,
-//    quantity:2
-//   },
-//   {
-//     id:uuidv4(),
-//     name:"ipad",
-//     img:"https://picsum.photos/301/200",
-//     count : 0,
-//    quantity:4
-//    },
-//    {
-//     id:uuidv4(),
-//     name:"airpods",
-//     img:"https://picsum.photos/302/200",
-//     count : 0,
-//    quantity:6
-//    },
-//    {
-//     id:uuidv4(),
-//     name:"laptops",
-//     img:"https://picsum.photos/310/200",
-//     count : 0,
-//    quantity:1
-//    },
-//    {
-//     id:uuidv4(),
-//     name:"phones",
-//     img:"https://picsum.photos/303/200",
-//     count : 0,
-//     quantity:7
-//    }
-// ]
 
-
-
-const Items = ({count,setCount}) => {
-    // const [list,setList]= useState(data)
+// eslint-disable-next-line react/prop-types
+const Items = ({setCount}) => {
+   
     const { data, setData } = useContext(DataContext); 
 
 
@@ -63,7 +24,7 @@ function add(idx){
                }
                return obj;
    })
-  //  setList(NewL)
+ 
   setData(NewL)
 }
 
@@ -76,7 +37,6 @@ function sub(idx){
               }
               return obj;
   })
-  // setList(NewL)
 
   setData(NewL)
 }
@@ -94,7 +54,7 @@ function clear(idx){
     return obj;
 })
 setCount(c=>c-save);
-// setList(NewL)
+
 setData(NewL)
 }
 
@@ -102,12 +62,17 @@ setData(NewL)
     <div className='Container flex flex-wrap gap-10 justify-center'>
        {data.map((obj)=>{
         return(
-             <div key={obj.id} className='card relative flex flex-col shadow-lg gap-4 w-[250px] h-[300px] md:w-1/5 rounded-md bg-slate-200'>
-                   <img src={obj.img} alt="" />
+             <div key={obj.id} className='card relative flex flex-col shadow-lg gap-1 w-[180px] h-[320px] md:w-1/5 rounded-md bg-slate-200'>
+                   <img src={obj.img} alt="" className="rounded-md" />
+                   <h4 className="ratingAndCount text-xs sm:text-base">{obj.rating}  <FontAwesomeIcon icon={faStar} className="text-green-700"/> | {obj.viewCount}</h4>
                    <p className='text-xl font-bold pl-3'>{obj.name}</p>
+                   <div className="flex items-center gap-2">
+                   <span className='text-md'>₹{obj.discountPrice}/-</span> <span className='text-sm text-gray-400 line-through pl-3'>₹{obj.originalPrice}</span>
+                   </div>
+                   
                    {obj.count > 0 &&
                    <>
-                   <div className=' countsAddAndSub bg-green-700 flex w-18 rounded-md absolute right-3 bottom-31 justify-between text-lg font-bold  '>
+                   <div className=' countsAddAndSub bg-black flex w-16 rounded-md absolute right-5 bottom-28 justify-between text-base font-bold  '>
                    <button className=' text-white w-1/3  text-center ' onClick={()=>sub(obj.id)}>
                    <FontAwesomeIcon icon={faMinus}/>
                    </button>
@@ -119,8 +84,8 @@ setData(NewL)
                    </div>
                   </>
                     }
-                 {obj.count===0 ? <button className='bg-green-700 text-white font-bold rounded-md h-8' onClick={()=>add(obj.id)}>ADD</button>:
-                  <button className='bg-red-500 text-white font-bold rounded-md h-8' onClick={()=>clear(obj.id)}>REMOVE</button>}
+                 {obj.count===0 ? <button id="Btn" className='bg-blue-500 text-white font-bold rounded-md h-8' onClick={()=>add(obj.id)}>ADD</button>:
+                  <button  id="sBtn" className='bg-red-500 text-white font-bold rounded-md h-8' onClick={()=>clear(obj.id)}>REMOVE</button>}
              </div>)
        })}
     </div>
