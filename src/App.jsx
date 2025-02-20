@@ -73,7 +73,7 @@ let intialdata = [
     originalPrice:3400,
     discountPrice:2640,
     rating:4.5,
-   viewCount:90
+    viewCount:90
    }
 ]
 
@@ -85,7 +85,7 @@ const App = () => {
    const [data, setData] = useState(intialdata);
   return (
     <>
-    <Navbar count={count} setTab={setTab}/>
+    <Navbar count={count} setCount={setCount} setTab={setTab}/>
     <DataContext.Provider value={{ data, setData }}>
     <Container tab={tab} count={count} setCount={setCount}/>
     </DataContext.Provider>

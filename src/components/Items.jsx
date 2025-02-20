@@ -2,15 +2,34 @@
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faPlus, faMinus, faStar } from "@fortawesome/free-solid-svg-icons";
 import { DataContext } from '../App';
-import { useContext } from 'react';
+import { useContext, useEffect } from 'react';
 
 
 
 
 // eslint-disable-next-line react/prop-types
-const Items = ({setCount}) => {
+const Items = ({count,setCount}) => {
    
     const { data, setData } = useContext(DataContext); 
+
+    useEffect(()=>{
+      let savedData = localStorage.getItem('cardData');
+      let savedCount = localStorage.getItem('totalcount')
+      if(savedData && savedCount){
+        setData(JSON.parse(savedData))
+        setCount(JSON.parse(savedCount))
+      }
+    },[])
+    
+    
+    useEffect(()=>{
+      if(data.length > 0 && count > 0){
+      localStorage.setItem('cardData',JSON.stringify(data))
+      localStorage.setItem('totalcount',JSON.stringify(count))
+      }
+    
+    },[data,count])
+    
 
 
 function add(idx){
@@ -24,7 +43,6 @@ function add(idx){
                }
                return obj;
    })
- 
   setData(NewL)
 }
 
@@ -50,11 +68,11 @@ function clear(idx){
        obj.count = 0;
        console.log(obj.count)
        return obj;
+      
     }
     return obj;
 })
 setCount(c=>c-save);
-
 setData(NewL)
 }
 

@@ -1,11 +1,25 @@
 
 import Container from './Container.jsx'
 
-
+import { useEffect } from 'react';
 
 
 // eslint-disable-next-line react/prop-types
-const Navbar = ({setTab,count}) => {
+const Navbar = ({setTab,count,setCount}) => {
+  
+  useEffect(()=>{
+          let savedCount = localStorage.getItem('totalcount')
+          if(savedCount){
+            setCount(JSON.parse(savedCount))
+          }
+        },[])
+
+        useEffect(()=>{
+          if(count){
+          localStorage.setItem('totalcount',JSON.stringify(count))
+          }
+        },[count])
+        
    
   return (
     <>

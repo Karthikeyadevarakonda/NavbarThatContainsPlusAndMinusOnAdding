@@ -3,12 +3,31 @@
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faPlus, faMinus , faStar } from "@fortawesome/free-solid-svg-icons";
 import { DataContext } from '../App';
-import { useContext } from 'react';
+import { useContext , useEffect} from 'react';
 
 
-const Cart = ({setCount}) => {
+const Cart = ({ count,setCount}) => {
   const { data, setData } = useContext(DataContext); 
 
+   useEffect(()=>{
+        let savedData = localStorage.getItem('cardData');
+        let savedCount = localStorage.getItem('totalcount')
+        if(savedData && savedCount){
+          setData(JSON.parse(savedData))
+          setCount(JSON.parse(savedCount))
+        }
+      },[])
+      
+      
+      useEffect(()=>{
+      
+        if(data.length > 0){
+        localStorage.setItem('cardData',JSON.stringify(data))
+        localStorage.setItem('totalcount',JSON.stringify(count))
+        }
+      
+      },[data,count])
+      
 
   const CartItems = data.filter((obj)=>obj.count > 0)
 
