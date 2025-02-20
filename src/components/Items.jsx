@@ -59,7 +59,10 @@ setData(NewL)
 }
 
   return (
+    <>
+    <h1 className="cart-title text-2xl font-bold text-center">ALL PRODUCTS</h1>
     <div className='Container flex flex-wrap gap-10 justify-center'>
+       
        {data.map((obj)=>{
         return(
              <div key={obj.id} className='card relative flex flex-col shadow-lg gap-1 w-[250px] h-[315px] md:w-1/5 rounded-md bg-slate-200'>
@@ -89,6 +92,7 @@ setData(NewL)
              </div>)
        })}
     </div>
+    </>
   )
 }
 

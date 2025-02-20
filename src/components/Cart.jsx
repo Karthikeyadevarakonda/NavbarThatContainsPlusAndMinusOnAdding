@@ -104,12 +104,11 @@ setData(NewL)
    
     </div>
    { data.filter(obj => obj.count > 0).length !== 0 && <div className="footer flex justify-evenly items-center bg-slate-100 shadow fixed z-1000 bottom-0 w-full"> 
-           <h1 className="w-1/2 text-lg md:text-xl">TOTAL : ₹{total}/- </h1>
-           <button className="placeOrderBtn rounded-md w-1/2 md:w-1/5 bg-amber-500">Place Your Order..!</button>
+           <h1 className="w-1/2 text-sm md:text-xl">TOTAL : ₹{total}/- </h1>
+           <button className="placeOrderBtn rounded-md font-normal text-xs md:text-xl w-1/2 md:w-1/5 bg-amber-500">Place Your Order..!</button>
     </div>}
     </>
        )}
 
- 
 
 export default Cart
